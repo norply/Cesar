@@ -94,4 +94,10 @@ int main()
             }
         }
    }
+	cout << "Результат: ";
+    for (i = 0; i < size; i++)// Вывод результата
+    {
+        cout << a[i];
+    }
+    delete [] a;
 }
