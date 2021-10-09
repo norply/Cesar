@@ -16,6 +16,7 @@ int main()
     int i=0;// Счётчик
     int i1=0;// Счётчик
 	int f=0;// счётчик для проверки ввода
+	int s;
 	string alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 	for (;;)// Проверка ввода
     {
@@ -51,4 +52,46 @@ int main()
     }
 	cout << "Введите шаг сдвига: ";
     cin >> n;
+	char *a = new char[size];// Для вывода результата
+    
+    for (i=0;i<size;i++)// Шифруем или расшифровываем методом Цезаря
+   {
+        if (text[i] == ' ')
+        {
+            a[i] = ' ';
+        }
+        else 
+        {
+            for (i1 = 0; i1 < 33; i1++)
+            {
+                if (text[i] == alphabet[i1])
+                {
+                    if (i + n >= 33)
+                    {
+                        n = n % 33;
+                        s = i + n;
+                        a[i] = alphabet[s];
+                    }
+                    else
+                        if (i + n < 0)
+                        {
+                            if (n % 33 == 0)
+                                a[i] = alphabet[i1];
+                            else
+                            {
+                                n = n % 33;
+                                s = i + 33 + n;
+                                a[i] = alphabet[s];
+                            }
+                        }
+                        else
+                    {
+                        a[i] = alphabet[i1 + n];
+                    }
+
+                }
+                   
+            }
+        }
+   }
 }
